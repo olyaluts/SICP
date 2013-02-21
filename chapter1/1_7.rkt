@@ -11,10 +11,10 @@
   (/ (+ x y) 2))
 
 (define (good-enough? guess prevguess)
-  (< (abs(- guess prevguess)) 0.001))
-
+  (< (/ (abs(- guess prevguess)) guess)
+     0.001))
 
 (define (square x) (* x x))
 
-
 (define (sqrt x) (sqrt-iter 1.0 x))
+
