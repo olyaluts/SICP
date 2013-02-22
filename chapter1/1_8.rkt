@@ -1,10 +1,9 @@
 #lang racket
 
-
-(define (cube-root-iter guess x) 
-  (if (good-enough? (improve guess x) guess)
-      (improve guess x)
-      (cube-root-iter (improve guess x) x)))
+(define (cube-root-iter guess prevguess x)
+  (if (good-enough? guess prevguess)
+      guess
+      (cube-root-iter (improve guess x) guess x)))
 
 (define (improve guess x) 
   (/ (+ (/ x (square guess)) (* 2 guess))
@@ -23,5 +22,5 @@
 (define (cube x) (* x x x))
 
 
-(define (cube-root x) (cube-root-iter 1.0 x))
+(define (cube-root x) (cube-root-iter 1.0 0.0 x))
 (cube-root 0)
