@@ -14,8 +14,9 @@
   (/ (+ x y) 2))
 
 (define (good-enough? guess prevguess)
-  (< (/ (abs (- guess prevguess)) (abs guess))
-     0.001))
+ (if (< (abs guess) 0.001) #t
+     (< (/ (abs (- guess prevguess)) (abs guess))
+     0.001)))
 
 
 (define (square x) (* x x))
@@ -23,4 +24,4 @@
 
 
 (define (cube-root x) (cube-root-iter 1.0 x))
-(cube-root -1000)
+(cube-root 0)
