@@ -12,14 +12,15 @@
   (/ (+ x y) 2))
 
 (define (good-enough? guess prevguess)
-  (if (< (abs guess) 0.001) #t
+  (if (< (abs guess) 0.000001) #t
       (< (/ (abs(- guess prevguess)) guess)
-         0.001)))
+         0.000001)))
 
 (define (square x) (* x x))
 
 (define (sqrt x)
-  (if (< x 0) #f
+  (if (< x 0)
+      #f
       (sqrt-iter 1.0 0.0 x)))
 
-(sqrt 1000000)
+(sqrt 0.0000000001)

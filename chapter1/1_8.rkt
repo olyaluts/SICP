@@ -14,7 +14,8 @@
 
 (define (good-enough? guess prevguess)
  (if (< (abs guess) 0.001) #t
-     (< (/ (abs (- guess prevguess)) (abs guess))
+     (< (/ (abs (- guess prevguess))
+           (abs guess))
      0.001)))
 
 
